@@ -106,7 +106,7 @@ MeltedFinal <- melt(mergedtrain_test,id = c("subjectnumber","activity","nameofla
 SummarizedFinal <- ddply(MeltedFinal,.(subjectnumber, nameoflabel, variable),summarize, 
                          AverageValue = mean(value))
 
-write.table(SummarizedFinal, "./SummarizedFinal.txt",col.names = TRUE, row.names = TRUE)
+write.table(SummarizedFinal, "./SummarizedFinal.txt",col.names = TRUE, row.names = FALSE)
 
 
 
