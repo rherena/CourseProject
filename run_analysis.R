@@ -88,7 +88,7 @@ trainxnew$activity <- trainy$V1
 ## merges the two sets
 
 mergedtrain_test <- merge(trainxnew, testxnew,all=TRUE)
-
+library(plyr)
 ### Updates activity labels
 mergedtrain_test <- join(mergedtrain_test, activitylabels, by = "activity")
 write.table(mergedtrain_test, "./MergedDataSet_Full.txt",col.names = TRUE, row.names = TRUE)
