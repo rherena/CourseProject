@@ -36,7 +36,7 @@ trainylink <- paste(traindir,"y_train.txt", sep = "")
 
 ### reads in activity labels and feature lables. 
 activitylabels <- read.table(activitylabelslink, header = FALSE)
-colnames(activitylabels) <- c("labelnumber","nameoflabel")
+colnames(activitylabels) <- c("activity","nameoflabel")
 
 ### gets feature names
 features <- read.table(featureslink, header = FALSE)
@@ -87,4 +87,7 @@ trainxnew$activity <- trainy$V1
 
 mergedtrain_test <- merge(trainxnew, testxnew,all=TRUE)
 
+### Updates activity labels
+mergedtrain_test <- join(mergedtrain_test, activitylabels, by = "activity")
+write.table(mergedtrain_test, "./MergedDataSet_Full.txt",col.names = TRUE, row.names = TRUE)
 
